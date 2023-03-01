@@ -1,3 +1,3 @@
 # NSUIC-architecture
 
-https://github.com/nistruct/NSUIC.git
+https://github.com/nistruct/NSUIC
