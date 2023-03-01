@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "nsuic",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nistruct/NSUIC.git",
+      "state" : {
+        "revision" : "a2494c424cb9c17b183a84173a3e3b59c486fcc9",
+        "version" : "0.0.2"
+      }
+    }
+  ],
+  "version" : 2
+}
