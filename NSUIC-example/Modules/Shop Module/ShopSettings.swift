@@ -8,21 +8,25 @@
 import Foundation
 
 class ShoppingCard: ObservableObject {
-    @Published var card: [Product] = []
+    @Published private(set) var card: [CardEntry] = []
     
-    func contains(_ product: Product) -> Bool {
-        card.contains(where: { $0.id == product.id })
+    func contains(_ id: Int) -> Bool {
+        card.contains(where: { $0.product.id == id })
     }
     
     func add(_ product: Product) {
-        guard !contains(product) else {
+        guard !contains(product.id) else {
             return
         }
         
-        card.append(product)
+        card.append(CardEntry(product: product, quantity: 1))
     }
     
     func remove(_ product: Product) {
-        card.removeAll(where: { $0.id == product.id })
+        card.removeAll(where: { $0.product.id == product.id })
+    }
+    
+    func remove(atOffset offset: IndexSet) {
+        card.remove(atOffsets: offset)
     }
 }

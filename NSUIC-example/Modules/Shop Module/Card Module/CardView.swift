@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct CardView: View {
+    @EnvironmentObject var shoppingCard: ShoppingCard
+    
     var body: some View {
-        Text("Card")
+        List {
+            ForEach(shoppingCard.card, id: \.self) {
+                CardItemView(entry: $0)
+            }.onDelete { indexSet in
+                shoppingCard.remove(atOffset: indexSet)
+                print(shoppingCard.card.count)
+            }
+        }
     }
 }
 

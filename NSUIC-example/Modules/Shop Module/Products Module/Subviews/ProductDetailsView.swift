@@ -38,7 +38,7 @@ struct ProductDetailsView: View {
                             .font(.system(size: 25, weight: .bold))
                     }
                     
-                    if shoppingCard.contains(product) {
+                    if shoppingCard.contains(product.id) {
                         removeButton
                     } else {
                         addButton
