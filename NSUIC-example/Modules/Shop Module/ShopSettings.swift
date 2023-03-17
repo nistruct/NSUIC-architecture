@@ -8,7 +8,7 @@
 import Foundation
 
 class ShoppingCard: ObservableObject {
-    @Published private(set) var card: [CardEntry] = []
+    @Published var card: [CardEntry] = []
     
     func contains(_ id: Int) -> Bool {
         card.contains(where: { $0.product.id == id })

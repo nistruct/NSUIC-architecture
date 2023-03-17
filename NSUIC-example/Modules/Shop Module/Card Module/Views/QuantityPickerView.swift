@@ -17,6 +17,9 @@ struct QuantityPickerView: View {
             }, label: {
                 Text("-")
                     .font(.title)
+                    .onTapGesture {
+                        quantity -=  1
+                    }
             })
             
             Text(String(quantity))
@@ -26,6 +29,9 @@ struct QuantityPickerView: View {
             }, label: {
                 Text("+")
                     .font(.title)
+                    .onTapGesture {
+                        quantity += 1
+                    }
             })
         }
     }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CardItemView: View {
-    var entry: CardEntry
+    @Binding var entry: CardEntry
+    @ObservedObject var viewModel: CardItemViewModel
     
     var body: some View {
         HStack {
@@ -16,7 +17,7 @@ struct CardItemView: View {
             Spacer()
             Text("$" + String(entry.price))
             Spacer()
-            QuantityPickerView(quantity: .constant(0)) // TODO: Use Binding
+            QuantityPickerView(quantity: $entry.quantity)
         }
     }
 }
@@ -28,7 +29,7 @@ struct CardItemView_Previews: PreviewProvider {
                               price: 11,
                               urlString: "",
                               description: "Description")
-        CardItemView(entry: CardEntry(product: product,
-                                      quantity: 2))
+        let cardEntry = CardEntry(product: product, quantity: 2)
+        CardItemView(entry: .constant(cardEntry), viewModel: CardItemViewModel())
     }
 }
