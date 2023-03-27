@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CardEntry: Hashable {
+struct CartEntry: Hashable {
     let product: Product
     var quantity: Int
     var price: Int {

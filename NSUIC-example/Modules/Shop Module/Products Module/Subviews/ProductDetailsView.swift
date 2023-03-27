@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductDetailsView: View {
-    @EnvironmentObject var shoppingCard: ShoppingCard
+    @EnvironmentObject var shoppingCart: ShoppingCart
     
     let product: Product
     
@@ -38,7 +38,7 @@ struct ProductDetailsView: View {
                             .font(.system(size: 25, weight: .bold))
                     }
                     
-                    if shoppingCard.contains(product.id) {
+                    if shoppingCart.contains(product.id) {
                         removeButton
                     } else {
                         addButton
@@ -57,18 +57,18 @@ struct ProductDetailsView: View {
     
     var addButton: some View {
         Button(action: {
-            shoppingCard.add(product)
+            shoppingCart.add(product)
         }) {
-            Text("Add to card")
+            Text("Add to cart")
                 .font(.system(size: 20, weight: .bold))
         }
     }
     
     var removeButton: some View {
         Button(action: {
-            shoppingCard.remove(product)
+            shoppingCart.remove(product)
         }) {
-            Text("Remove from card")
+            Text("Remove from cart")
                 .font(.system(size: 20, weight: .bold))
         }
     }

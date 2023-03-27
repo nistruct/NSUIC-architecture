@@ -1,5 +1,5 @@
 //
-//  CardCoordinator.swift
+//  CartCoordinator.swift
 //  NSUIC-example
 //
 //  Created by Nikola Nikolic on 28.2.23..
@@ -8,15 +8,15 @@
 import SwiftUI
 import NSUIC
 
-protocol CardCoordinable: Coordinable {
+protocol CartCoordinable: Coordinable {
     
 }
 
-class CardCoordinator: CardCoordinable {
+class CartCoordinator: CartCoordinable {
     
     var view: AnyView {
         AnyView(
-            CardView()
+            CartView()
         )
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ShoppingCard.swift
+//  ShoppingCart.swift
 //  NSUIC-example
 //
 //  Created by Nikola Nikolic on 28.2.23..
@@ -7,11 +7,11 @@
 
 import Foundation
 
-class ShoppingCard: ObservableObject {
-    @Published var card: [CardEntry] = []
+class ShoppingCart: ObservableObject {
+    @Published var cart: [CartEntry] = []
     
     func contains(_ id: Int) -> Bool {
-        card.contains(where: { $0.product.id == id })
+        cart.contains(where: { $0.product.id == id })
     }
     
     func add(_ product: Product) {
@@ -19,14 +19,14 @@ class ShoppingCard: ObservableObject {
             return
         }
         
-        card.append(CardEntry(product: product, quantity: 1))
+        cart.append(CartEntry(product: product, quantity: 1))
     }
     
     func remove(_ product: Product) {
-        card.removeAll(where: { $0.product.id == product.id })
+        cart.removeAll(where: { $0.product.id == product.id })
     }
     
     func remove(atOffset offset: IndexSet) {
-        card.remove(atOffsets: offset)
+        cart.remove(atOffsets: offset)
     }
 }

@@ -14,17 +14,17 @@ protocol ShopCoordinable: Coordinable {
 
 class ShopCoordinator: ShopCoordinable {
     let productsCoordinator = ProductsCoordinator(dependency: ProductsDependency())
-    let cardCoordinator = CardCoordinator()
+    let cartCoordinator = CartCoordinator()
     let settingsCoordinator = SettingsCoordinator()
     
     var view: AnyView {
         AnyView(
             ShopView(products: productsCoordinator,
-                     card: cardCoordinator,
+                     cart: cartCoordinator,
                      settings: settingsCoordinator)
             .environmentObject(observedData)
         )
     }
     
-    var observedData = ShoppingCard()
+    var observedData = ShoppingCart()
 }

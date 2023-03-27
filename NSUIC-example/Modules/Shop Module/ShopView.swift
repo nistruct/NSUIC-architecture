@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ShopView: View {
-    @EnvironmentObject var shoppingCard: ShoppingCard
+    @EnvironmentObject var shoppingCart: ShoppingCart
     
     let products: any ProductsCoordinable
-    let card: any CardCoordinable
+    let cart: any CartCoordinable
     let settings: any SettingsCoordinable
     
     var body: some View {
@@ -21,9 +21,9 @@ struct ShopView: View {
                     Label("Products", systemImage: "list.dash")
                 }
             
-            card.view
+            cart.view
                 .tabItem {
-                    Label("Card", systemImage: "bag")
+                    Label("Cart", systemImage: "bag")
                 }
             
             settings.view
@@ -38,7 +38,7 @@ struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
         let coordinator = ShopCoordinator()
         ShopView(products: coordinator.productsCoordinator,
-                 card: coordinator.cardCoordinator,
+                 cart: coordinator.cartCoordinator,
                  settings: coordinator.settingsCoordinator)
     }
 }

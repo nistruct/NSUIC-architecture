@@ -1,5 +1,5 @@
 //
-//  CardView.swift
+//  CartView.swift
 //  NSUIC-example
 //
 //  Created by Nikola Nikolic on 28.2.23..
@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-struct CardView: View {
-    @EnvironmentObject var shoppingCard: ShoppingCard
+struct CartView: View {
+    @EnvironmentObject var shoppingCart: ShoppingCart
     
     var body: some View {
         List {
-            ForEach($shoppingCard.card, id: \.self) {
-                CardItemView(entry: $0, viewModel: CardItemViewModel())
+            ForEach($shoppingCart.cart, id: \.self) {
+                CartItemView(entry: $0, viewModel: CartItemViewModel())
             }.onDelete { indexSet in
-                shoppingCard.remove(atOffset: indexSet)
-                print(shoppingCard.card.count)
+                shoppingCart.remove(atOffset: indexSet)
+                print(shoppingCart.cart.count)
             }
         }
     }
 }
 
-struct CardView_Previews: PreviewProvider {
+struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView()
+        CartView()
     }
 }
