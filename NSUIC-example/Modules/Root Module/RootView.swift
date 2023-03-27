@@ -30,5 +30,6 @@ struct RootView_Previews: PreviewProvider {
         let coordinator = RootCoordinator()
         RootView(onboardingCoordinator: coordinator.onboardingCoordinator,
                  shopCoordinator: coordinator.shopCoordinator)
+            .environmentObject(AppSettings())
     }
 }

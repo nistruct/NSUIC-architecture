@@ -24,6 +24,11 @@ struct CartView: View {
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView()
+        let shoppingCart = ShoppingCart()
+        Product.fixtureProducts().forEach {
+            shoppingCart.add($0)
+        }
+        return CartView()
+            .environmentObject(shoppingCart)
     }
 }

@@ -40,5 +40,6 @@ struct ShopView_Previews: PreviewProvider {
         ShopView(products: coordinator.productsCoordinator,
                  cart: coordinator.cartCoordinator,
                  settings: coordinator.settingsCoordinator)
+        .environmentObject(ShoppingCart())
     }
 }
