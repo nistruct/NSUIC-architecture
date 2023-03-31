@@ -9,30 +9,31 @@ import SwiftUI
 
 struct QuantityPickerView: View {
     @Binding var quantity: Int
+    var onEmpty: () -> Void = {}
     
     var body: some View {
         HStack {
             Button(action: {
+                quantity -=  1
                 
+                if quantity == 0 {
+                    onEmpty()
+                }
             }, label: {
                 Text("-")
                     .font(.title)
-                    .onTapGesture {
-                        quantity -=  1
-                    }
             })
+            .buttonStyle(.borderless)
             
             Text(String(quantity))
             
             Button(action: {
-                
+                quantity += 1
             }, label: {
                 Text("+")
                     .font(.title)
-                    .onTapGesture {
-                        quantity += 1
-                    }
             })
+            .buttonStyle(.borderless)
         }
     }
 }

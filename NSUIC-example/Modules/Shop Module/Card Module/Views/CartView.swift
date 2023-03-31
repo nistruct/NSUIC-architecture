@@ -10,13 +10,85 @@ import SwiftUI
 struct CartView: View {
     @EnvironmentObject var shoppingCart: ShoppingCart
     
+    @State private var selectedProduct: Product?
+    
+    private var totalSum: Int {
+        shoppingCart.cart
+            .map { $0.price * $0.quantity }
+            .reduce(0, +)
+    }
+    
     var body: some View {
+        rootView
+            .sheet(item: $selectedProduct) {
+                ProductDetailsView(product: $0)
+            }
+    }
+    
+    var rootView: some View {
+        VStack {
+            titleView
+            contentView
+            Spacer()
+        }
+    }
+    
+    var titleView: some View {
+        Text("Shopping Cart")
+            .font(.system(size: 20))
+            .bold()
+    }
+    
+    @ViewBuilder
+    var contentView: some View {
+        if shoppingCart.cart.isEmpty {
+            emptyView
+        } else {
+            listView
+        }
+    }
+    
+    var emptyView: some View {
+        VStack(spacing: 10) {
+            Spacer()
+            Text("Shopping cart is empty")
+                .foregroundColor(.gray)
+                .bold()
+            
+            Button(action: {
+                shoppingCart.showProducts()
+            }) {
+                Text("Start shopping")
+                    .foregroundColor(.blue)
+            }
+            Spacer()
+        }
+    }
+    
+    var listView: some View {
         List {
-            ForEach($shoppingCart.cart, id: \.self) {
-                CartItemView(entry: $0, viewModel: CartItemViewModel())
-            }.onDelete { indexSet in
-                shoppingCart.remove(atOffset: indexSet)
-                print(shoppingCart.cart.count)
+            ForEach($shoppingCart.cart, id: \.self) { entry in
+                CartItemView(entry: entry) {
+                    withAnimation {
+                        shoppingCart.remove(entry.wrappedValue)
+                    }
+                }
+                .frame(height: 40)
+                .onTapGesture {
+                    selectedProduct = entry.wrappedValue.product
+                }
+            }
+            .onDelete { indexSet in
+                withAnimation {
+                    shoppingCart.remove(indexSet)
+                }
+            }
+            
+            HStack {
+                Text("Sum:")
+                Spacer()
+                Text("$" + String(totalSum))
+                    .bold()
             }
         }
     }

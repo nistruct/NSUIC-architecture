@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CartItemView: View {
     @Binding var entry: CartEntry
-    @ObservedObject var viewModel: CartItemViewModel
+    var onDelete: () -> Void = {}
     
     var body: some View {
         HStack {
@@ -17,8 +17,9 @@ struct CartItemView: View {
             Spacer()
             Text("$" + String(entry.price))
             Spacer()
-            QuantityPickerView(quantity: $entry.quantity)
+            QuantityPickerView(quantity: $entry.quantity, onEmpty: onDelete)
         }
+        .contentShape(Rectangle())
     }
 }
 
@@ -30,6 +31,6 @@ struct CartItemView_Previews: PreviewProvider {
                               urlString: "",
                               description: "Description")
         let cartEntry = CartEntry(product: product, quantity: 2)
-        CartItemView(entry: .constant(cartEntry), viewModel: CartItemViewModel())
+        CartItemView(entry: .constant(cartEntry))
     }
 }
