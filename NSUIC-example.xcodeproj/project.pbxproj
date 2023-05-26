@@ -33,6 +33,10 @@
 		537C7BDB29ADFA65008C8A29 /* ProductItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C7BDA29ADFA65008C8A29 /* ProductItemView.swift */; };
 		537C7BE029AE0660008C8A29 /* ProductsDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C7BDF29AE0660008C8A29 /* ProductsDependency.swift */; };
 		537C7BE229AE073D008C8A29 /* ShopSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C7BE129AE073D008C8A29 /* ShopSettings.swift */; };
+		AB0B57E42A20F06B006D8712 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0B57E32A20F06B006D8712 /* PaymentView.swift */; };
+		AB0B57E62A20F0C1006D8712 /* PaymentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0B57E52A20F0C1006D8712 /* PaymentCoordinator.swift */; };
+		AB0B57E82A20F3B0006D8712 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0B57E72A20F3B0006D8712 /* PaymentViewModel.swift */; };
+		AB0B57EA2A20F635006D8712 /* PaymentDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0B57E92A20F635006D8712 /* PaymentDependency.swift */; };
 		B50A71A729C4B5D900509167 /* CartItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50A71A629C4B5D800509167 /* CartItemViewModel.swift */; };
 		B50A71AB29C4B63500509167 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50A71AA29C4B63500509167 /* CartViewModel.swift */; };
 		B52B7F9F29B8D93D00E7A54B /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B7F9E29B8D93D00E7A54B /* CartItemView.swift */; };
@@ -69,6 +73,10 @@
 		537C7BDA29ADFA65008C8A29 /* ProductItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemView.swift; sourceTree = "<group>"; };
 		537C7BDF29AE0660008C8A29 /* ProductsDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsDependency.swift; sourceTree = "<group>"; };
 		537C7BE129AE073D008C8A29 /* ShopSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSettings.swift; sourceTree = "<group>"; };
+		AB0B57E32A20F06B006D8712 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		AB0B57E52A20F0C1006D8712 /* PaymentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCoordinator.swift; sourceTree = "<group>"; };
+		AB0B57E72A20F3B0006D8712 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		AB0B57E92A20F635006D8712 /* PaymentDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDependency.swift; sourceTree = "<group>"; };
 		B50A71A629C4B5D800509167 /* CartItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemViewModel.swift; sourceTree = "<group>"; };
 		B50A71AA29C4B63500509167 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		B52B7F9E29B8D93D00E7A54B /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
@@ -153,6 +161,7 @@
 				537C7BCA29AD6E2B008C8A29 /* Card Module */,
 				537C7BCD29AD6E44008C8A29 /* Settings Module */,
 				537C7BBE29AD6621008C8A29 /* ShopCoordinator.swift */,
+				AB0B57E22A20F058006D8712 /* Payment Module */,
 				537C7BBC29AD6605008C8A29 /* ShopView.swift */,
 				537C7BE129AE073D008C8A29 /* ShopSettings.swift */,
 			);
@@ -227,6 +236,17 @@
 				537C7BC529AD6DF9008C8A29 /* ProductDetailsView.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		AB0B57E22A20F058006D8712 /* Payment Module */ = {
+			isa = PBXGroup;
+			children = (
+				AB0B57E32A20F06B006D8712 /* PaymentView.swift */,
+				AB0B57E72A20F3B0006D8712 /* PaymentViewModel.swift */,
+				AB0B57E52A20F0C1006D8712 /* PaymentCoordinator.swift */,
+				AB0B57E92A20F635006D8712 /* PaymentDependency.swift */,
+			);
+			path = "Payment Module";
 			sourceTree = "<group>";
 		};
 		B50A71A829C4B5E800509167 /* Views */ = {
@@ -351,8 +371,10 @@
 				537C7BBA29AD65C5008C8A29 /* OnboardingViewModel.swift in Sources */,
 				B50A71A729C4B5D900509167 /* CartItemViewModel.swift in Sources */,
 				537C7BC629AD6DF9008C8A29 /* ProductDetailsView.swift in Sources */,
+				AB0B57EA2A20F635006D8712 /* PaymentDependency.swift in Sources */,
 				537C7BBD29AD6605008C8A29 /* ShopView.swift in Sources */,
 				537C7BCC29AD6E3E008C8A29 /* SettingsView.swift in Sources */,
+				AB0B57E42A20F06B006D8712 /* PaymentView.swift in Sources */,
 				537C7BC929AD6E26008C8A29 /* CartView.swift in Sources */,
 				537C7BC429AD6DCB008C8A29 /* ProductsView.swift in Sources */,
 				B52B7FA329B8DB4000E7A54B /* CartEntry.swift in Sources */,
@@ -365,6 +387,8 @@
 				537C7BE229AE073D008C8A29 /* ShopSettings.swift in Sources */,
 				537C7B9929AD6299008C8A29 /* NSUIC_exampleApp.swift in Sources */,
 				537C7BB829AD65BA008C8A29 /* OnboardingView.swift in Sources */,
+				AB0B57E62A20F0C1006D8712 /* PaymentCoordinator.swift in Sources */,
+				AB0B57E82A20F3B0006D8712 /* PaymentViewModel.swift in Sources */,
 				537C7BD129AD704A008C8A29 /* CartCoordinator.swift in Sources */,
 				B58469A129D193C6008518E6 /* Product+Fixture.swift in Sources */,
 				537C7BD929ADEADC008C8A29 /* ProductsViewModel.swift in Sources */,

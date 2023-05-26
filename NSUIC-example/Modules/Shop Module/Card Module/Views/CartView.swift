@@ -11,6 +11,9 @@ struct CartView: View {
     @EnvironmentObject var shoppingCart: ShoppingCart
     
     @State private var selectedProduct: Product?
+    @State private var itemsToBuy: [CartEntry]?
+    
+    var coordinator: any CartCoordinable
     
     private var totalSum: Int {
         shoppingCart.cart
@@ -23,6 +26,9 @@ struct CartView: View {
             .sheet(item: $selectedProduct) {
                 ProductDetailsView(product: $0)
             }
+            .sheet(item: $itemsToBuy) {
+                coordinator.buy($0)
+            }
     }
     
     var rootView: some View {
@@ -30,6 +36,7 @@ struct CartView: View {
             titleView
             contentView
             Spacer()
+            buyButton
         }
     }
     
@@ -92,6 +99,14 @@ struct CartView: View {
             }
         }
     }
+    
+    var buyButton: some View {
+        Button(action: {
+            itemsToBuy = shoppingCart.cart
+        }, label: {
+            Text("Buy")
+        })
+    }
 }
 
 struct CartView_Previews: PreviewProvider {
@@ -100,7 +115,7 @@ struct CartView_Previews: PreviewProvider {
         Product.fixtureProducts().forEach {
             shoppingCart.add($0)
         }
-        return CartView()
+        return CartView(coordinator: CartCoordinator())
             .environmentObject(shoppingCart)
     }
 }
